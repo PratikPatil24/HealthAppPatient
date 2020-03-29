@@ -1,14 +1,14 @@
 package com.pratik.healthapppatient;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,6 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class SignUpActivity extends AppCompatActivity {
 
     TextInputEditText PhoneNumberTextInput, OTPTextInput, NameTextInput, AgeTextInput, WeightTextInput, HeightTextInput;
+    TextInputEditText StateTextInput, CityTextInput, AreaTextInput, AddressLineTextInput;
     MaterialButton GetOTPButton, ResendOTPButton, SignUpButton, AlreadyAccButton;
 
     RadioGroup GenderRadioGroup;
@@ -97,6 +98,11 @@ public class SignUpActivity extends AppCompatActivity {
         AgeTextInput = findViewById(R.id.textInputEditTextAge);
         WeightTextInput = findViewById(R.id.textInputEditTextWeight);
         HeightTextInput = findViewById(R.id.textInputEditTextHeight);
+
+        StateTextInput = findViewById(R.id.textInputEditTextState);
+        CityTextInput = findViewById(R.id.textInputEditTextCity);
+        AreaTextInput = findViewById(R.id.textInputEditTextArea);
+        AddressLineTextInput = findViewById(R.id.textInputEditTextLine);
 
 
         GetOTPButton = findViewById(R.id.btnGetOTP);
@@ -259,11 +265,15 @@ public class SignUpActivity extends AppCompatActivity {
 
         final Map<String, Object> user = new HashMap<>();
         user.put("userType", "patient");
-        user.put("name", NameTextInput.getText().toString().toLowerCase());
+        user.put("name", NameTextInput.getText().toString());
         user.put("age", Integer.parseInt(AgeTextInput.getText().toString()));
-        user.put("weight", Integer.parseInt(WeightTextInput.getText().toString().toLowerCase()));
-        user.put("height", Integer.parseInt(HeightTextInput.getText().toString().toLowerCase()));
+        user.put("weight", Integer.parseInt(WeightTextInput.getText().toString()));
+        user.put("height", Integer.parseInt(HeightTextInput.getText().toString()));
         user.put("gender", gender);
+        user.put("state", StateTextInput.getText().toString().toLowerCase());
+        user.put("city", CityTextInput.getText().toString().toLowerCase());
+        user.put("area", AreaTextInput.getText().toString().toLowerCase());
+        user.put("addressline", AddressLineTextInput.getText().toString().toLowerCase());
 
         db.collection("users").document(phoneno)
                 .set(user)
