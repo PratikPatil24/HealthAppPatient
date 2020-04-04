@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DashActivity"></activity>
-        <activity android:name=".SignUpActivity" android:theme="@style/AppThemeNoActionBar"/>
-        <activity android:name=".MainActivity" android:theme="@style/AppThemeNoActionBar"/>
+        <activity android:name=".ProfileActivitiy"></activity>
+        <activity android:name=".DashActivity" />
+        <activity
+            android:name=".SignUpActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/splashTheme">

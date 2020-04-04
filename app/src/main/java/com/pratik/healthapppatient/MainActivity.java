@@ -234,4 +234,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getBaseContext(), DashActivity.class));
+            finish();
+        }
+    }
 }
