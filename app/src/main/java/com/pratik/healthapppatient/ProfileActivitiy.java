@@ -127,6 +127,7 @@ public class ProfileActivitiy extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 Log.d("UserAdd", "DocumentSnapshot successfully written!");
                                 Toast.makeText(ProfileActivitiy.this, "Information Updated!", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
