@@ -133,7 +133,6 @@ public class SignUpActivity extends AppCompatActivity {
                             if (document.exists()) {
                                 Log.d("UserFetch", "DocumentSnapshot data: " + document.getData());
                                 Toast.makeText(SignUpActivity.this, "User Found!", Toast.LENGTH_SHORT).show();
-
                             } else {
                                 Log.d("UserFetch", "No such document");
                                 Toast.makeText(SignUpActivity.this, "User Not Found!", Toast.LENGTH_SHORT).show();
@@ -222,6 +221,7 @@ public class SignUpActivity extends AppCompatActivity {
         Toast.makeText(this, "Credential: " + credential.toString(), Toast.LENGTH_SHORT).show();
         //adding user
         addUser();
+        addtopatients();
 
         //signing the user
         signInWithPhoneAuthCredential(credential);
@@ -276,6 +276,52 @@ public class SignUpActivity extends AppCompatActivity {
         user.put("addressline", AddressLineTextInput.getText().toString().toLowerCase());
 
         db.collection("users").document(phoneno)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("UserAdd", "DocumentSnapshot successfully written!");
+                        Toast.makeText(SignUpActivity.this, "User Added!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("UserAdd", "Error writing document", e);
+                        Toast.makeText(SignUpActivity.this, "User Not Added!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+    }
+
+    void addtopatients() {
+
+        String gender = "";
+        int checked = GenderRadioGroup.getCheckedRadioButtonId();
+        if (checked == -1) {
+            Toast.makeText(SignUpActivity.this, "Select User Type!", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (checked == R.id.radioButtonMale)
+            gender = "Male";
+        else if (checked == R.id.radioButtonFemale)
+            gender = "Female";
+        else if (checked == R.id.radioButtonOthers)
+            gender = "Others";
+
+        final Map<String, Object> user = new HashMap<>();
+        user.put("userType", "patient");
+        user.put("name", NameTextInput.getText().toString());
+        user.put("age", Integer.parseInt(AgeTextInput.getText().toString()));
+        user.put("weight", Integer.parseInt(WeightTextInput.getText().toString()));
+        user.put("height", Integer.parseInt(HeightTextInput.getText().toString()));
+        user.put("gender", gender);
+        user.put("state", StateTextInput.getText().toString().toLowerCase());
+        user.put("city", CityTextInput.getText().toString().toLowerCase());
+        user.put("area", AreaTextInput.getText().toString().toLowerCase());
+        user.put("addressline", AddressLineTextInput.getText().toString().toLowerCase());
+
+        db.collection("patients").document(phoneno)
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
