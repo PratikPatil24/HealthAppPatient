@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -62,6 +63,7 @@ public class ProfileActivitiy extends AppCompatActivity {
         UpdateInfoButton = findViewById(R.id.btnUpdateInfo);
         SignOutButton = findViewById(R.id.btnSignOut);
 
+
         DocumentReference docRef = db.collection("users").document(mAuth.getCurrentUser().getPhoneNumber());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -88,14 +90,16 @@ public class ProfileActivitiy extends AppCompatActivity {
                 } else {
                     Log.d("UserFetch", "get failed with ", task.getException());
                     Toast.makeText(ProfileActivitiy.this, "Fetch Failed!", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
 
         UpdateInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
+
+                Snackbar.make(v, "Updating data...", Snackbar.LENGTH_SHORT).show();
+
                 phoneno = mAuth.getCurrentUser().getPhoneNumber();
 //                int checked = GenderRadioGroup.getCheckedRadioButtonId();
 //                if (checked == -1) {
@@ -126,7 +130,6 @@ public class ProfileActivitiy extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d("UserAdd", "DocumentSnapshot successfully written!");
-                                Toast.makeText(ProfileActivitiy.this, "Information Updated!", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         })
@@ -134,7 +137,7 @@ public class ProfileActivitiy extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.w("UserAdd", "Error writing document", e);
-                                Toast.makeText(ProfileActivitiy.this, "Information Not Updated!", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(v, "Data not Updated!", Snackbar.LENGTH_SHORT).show();
                             }
                         });
             }

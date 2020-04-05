@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivitiy"></activity>
+        <activity android:name=".ViewHistoryActivity" />
+        <activity android:name=".BookAppointmentActivity" />
+        <activity android:name=".CheckHealthActivity" />
+        <activity android:name=".ProfileActivitiy" />
         <activity android:name=".DashActivity" />
         <activity
             android:name=".SignUpActivity"
