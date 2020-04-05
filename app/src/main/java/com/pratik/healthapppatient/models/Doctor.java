@@ -1,6 +1,8 @@
 package com.pratik.healthapppatient.models;
 
-public class Doctor {
+import java.io.Serializable;
+
+public class Doctor implements Serializable {
     String ID, phoneno, name, speciality, degree, state, city, area, addressline, gender;
     int age;
 

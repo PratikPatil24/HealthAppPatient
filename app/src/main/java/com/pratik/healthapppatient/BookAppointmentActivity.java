@@ -34,10 +34,13 @@ public class BookAppointmentActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     LinearLayoutManager mLayoutManager;
     ArrayList<Doctor> doctors = new ArrayList<>();
+
     //Firebase Auth
     private FirebaseAuth mAuth;
+
     //Firebase Firestore
     private FirebaseFirestore db;
+
     private CollectionReference AppointRef;
 
     @Override
@@ -125,7 +128,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
                                 public void onItemClick(Doctor doctor, int position) {
                                     //Toast.makeText(BookAppointmentActivity.this, doctor.getPhoneno(), Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(BookAppointmentActivity.this, DoctorAppointmentActivity.class);
-                                    i.putExtra("ID", doctor.getID());
+                                    i.putExtra("Doctor", doctor);
                                     startActivity(i);
                                 }
                             });
@@ -167,7 +170,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
                                 public void onItemClick(Doctor doctor, int position) {
                                     //Toast.makeText(BookAppointmentActivity.this, doctor.getPhoneno(), Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(BookAppointmentActivity.this, DoctorAppointmentActivity.class);
-                                    i.putExtra("ID", doctor.getID());
+                                    i.putExtra("Doctor", doctor);
                                     startActivity(i);
                                 }
                             });
