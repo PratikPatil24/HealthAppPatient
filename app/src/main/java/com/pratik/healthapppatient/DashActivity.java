@@ -20,10 +20,11 @@ public class DashActivity extends AppCompatActivity {
     //Firebase Auth
     private FirebaseAuth mAuth;
 
-    TextView StatisticsTextView;
-    MaterialButton ViewHistoryButton, CheckHealthButton, BookAppButton;
     //Firebase Firestore
     private FirebaseFirestore db;
+
+    TextView StatisticsTextView;
+    MaterialButton ViewHistoryButton, CheckHealthButton, BookAppButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
