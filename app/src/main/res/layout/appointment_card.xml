@@ -28,21 +28,20 @@
                 android:layout_weight="1"
                 android:text="Dr. "
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:text="Date: "
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -52,7 +51,7 @@
                 android:id="@+id/textViewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -61,14 +60,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:text="Speciality: "
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -78,8 +76,7 @@
                 android:id="@+id/textViewSpeciality"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:layout_margin="4dp"
                 android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -88,14 +85,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:text="Degree: "
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -105,7 +101,7 @@
                 android:id="@+id/textViewDegree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -114,15 +110,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:layout_margin="4dp"
                 android:text="Address: "
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -132,8 +126,7 @@
                 android:id="@+id/textViewAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
+                android:layout_margin="4dp"
                 android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -142,14 +135,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:text="OTP: "
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
@@ -159,7 +151,7 @@
                 android:id="@+id/textViewOTP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:text="TextView"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
