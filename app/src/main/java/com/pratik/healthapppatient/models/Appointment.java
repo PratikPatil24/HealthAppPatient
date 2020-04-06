@@ -2,12 +2,12 @@ package com.pratik.healthapppatient.models;
 
 public class Appointment {
 
-    String pID, dID, doctorName, speciality, degree, address, day, month, year;
+    String pID, dID, doctorName, speciality, degree, address, day, month, year, otp;
 
     public Appointment() {
     }
 
-    public Appointment(String pID, String dID, String doctorName, String speciality, String degree, String address, String day, String month, String year) {
+    public Appointment(String pID, String dID, String doctorName, String speciality, String degree, String address, String day, String month, String year, String otp) {
         this.pID = pID;
         this.dID = dID;
         this.doctorName = doctorName;
@@ -17,6 +17,7 @@ public class Appointment {
         this.day = day;
         this.month = month;
         this.year = year;
+        this.otp = otp;
     }
 
     public String getpID() {
@@ -89,5 +90,13 @@ public class Appointment {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
     }
 }

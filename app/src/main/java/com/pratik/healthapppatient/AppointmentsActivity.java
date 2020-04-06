@@ -62,7 +62,7 @@ public class AppointmentsActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Appointment appointment = new Appointment(document.get("pID").toString(), document.get("dID").toString(),
                                         document.get("doctorName").toString(), document.get("speciality").toString(), document.get("degree").toString(),
-                                        document.get("address").toString(), document.get("day").toString(), document.get("month").toString(), document.get("year").toString());
+                                        document.get("address").toString(), document.get("day").toString(), document.get("month").toString(), document.get("year").toString(), document.get("otp").toString());
 
                                 appointments.add(appointment);
 

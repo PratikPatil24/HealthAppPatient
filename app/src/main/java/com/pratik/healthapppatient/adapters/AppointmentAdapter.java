@@ -37,6 +37,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         holder.SpecialityTextView.setText(appointment.getSpeciality());
         holder.DegreeTextView.setText(appointment.getDegree());
         holder.AddressTextView.setText(appointment.getAddress());
+        holder.OTPTextView.setText(appointment.getOtp());
     }
 
     @Override
@@ -45,7 +46,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView NameTextView, DateTextView, SpecialityTextView, DegreeTextView, AddressTextView;
+        TextView NameTextView, DateTextView, SpecialityTextView, DegreeTextView, AddressTextView, OTPTextView;
 
         MyViewHolder(View view) {
             super(view);
@@ -55,6 +56,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             SpecialityTextView = view.findViewById(R.id.textViewSpeciality);
             DegreeTextView = view.findViewById(R.id.textViewDegree);
             AddressTextView = view.findViewById(R.id.textViewAddress);
+            OTPTextView = view.findViewById(R.id.textViewOTP);
         }
     }
 }

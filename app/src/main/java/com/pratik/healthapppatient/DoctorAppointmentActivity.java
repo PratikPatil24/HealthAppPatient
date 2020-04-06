@@ -20,6 +20,7 @@ import com.pratik.healthapppatient.models.Doctor;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class DoctorAppointmentActivity extends AppCompatActivity {
 
@@ -33,6 +34,8 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     //Firebase Firestore
     private FirebaseFirestore db;
+
+    String otp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,7 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
                 appointment.put("day", day);
                 appointment.put("month", month);
                 appointment.put("year", year);
+                appointment.put("otp", getOTP());
 
                 db.collection("doctors").document(doctor.getID()).collection(day + month + year).document()
                         .set(appointment)
@@ -126,5 +130,15 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public String getOTP() {
+        // It will generate 6 digit random Number.
+        // from 0 to 999999
+        Random rnd = new Random();
+        int number = rnd.nextInt(999999);
+
+        // this will convert any number sequence into 6 character.
+        return String.format("%06d", number);
     }
 }
