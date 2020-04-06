@@ -75,6 +75,10 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
                 final Map<String, Object> appointment = new HashMap<>();
                 appointment.put("pID", mAuth.getCurrentUser().getPhoneNumber());
                 appointment.put("dID", doctor.getID());
+                appointment.put("doctorName", doctor.getName());
+                appointment.put("speciality", doctor.getSpeciality());
+                appointment.put("degree", doctor.getDegree());
+                appointment.put("address", (doctor.getAddressline() + ", " + doctor.getArea() + ", " + doctor.getCity() + ", " + doctor.getState()));
                 appointment.put("day", day);
                 appointment.put("month", month);
                 appointment.put("year", year);
@@ -104,8 +108,11 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d("UserAdd", "DocumentSnapshot successfully written!");
-                                Snackbar.make(v, "Appointment Added!", Snackbar.LENGTH_SHORT).show();
+                                //Snackbar.make(v, "Appointment Added!", Snackbar.LENGTH_SHORT).show();
                                 //Toast.makeText(DoctorAppointmentActivity.this, "Information Updated!", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(DoctorAppointmentActivity.this, AppointmentsActivity.class);
+                                startActivity(i);
+                                finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

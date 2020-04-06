@@ -24,7 +24,7 @@ public class DashActivity extends AppCompatActivity {
     private FirebaseFirestore db;
 
     TextView StatisticsTextView;
-    MaterialButton ViewHistoryButton, CheckHealthButton, BookAppButton;
+    MaterialButton ViewHistoryButton, CheckHealthButton, BookAppButton, CheckAppButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class DashActivity extends AppCompatActivity {
         ViewHistoryButton = findViewById(R.id.btnViewHistory);
         CheckHealthButton = findViewById(R.id.btnCheckHealth);
         BookAppButton = findViewById(R.id.btnBookApp);
+        CheckAppButton = findViewById(R.id.btnCheckApp);
 
         ViewHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,14 @@ public class DashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DashActivity.this, BookAppointmentActivity.class);
+                startActivity(i);
+            }
+        });
+
+        CheckAppButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DashActivity.this, AppointmentsActivity.class);
                 startActivity(i);
             }
         });

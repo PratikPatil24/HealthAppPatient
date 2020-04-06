@@ -87,6 +87,16 @@
             android:layout_margin="8dp"
             android:text="Book Appointment"
             android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCheckApp"
+            style="@style/SignButton"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:text="View Appointments"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 
