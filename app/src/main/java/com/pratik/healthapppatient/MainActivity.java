@@ -33,13 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
     String phoneno, otp;
 
+    //Firebase Auth
+    private FirebaseAuth mAuth;
+
     //Firebase Firestore
     private FirebaseFirestore db;
 
     String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
-    //Firebase Auth
-    private FirebaseAuth mAuth;
+
     //the callback to detect the verification status
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
@@ -140,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 phoneno = "+91" + PhoneNumberTextInput.getText().toString().trim();
 
                 //Validating Phone Number
-                if(phoneno.equals(null) || phoneno.length() != 10){
+                if (phoneno.equals(null) || phoneno.length() != 13) {
                     PhoneNumberTextInput.setError("Enter Valid Phone Number!");
                     PhoneNumberTextInput.requestFocus();
                     return;
