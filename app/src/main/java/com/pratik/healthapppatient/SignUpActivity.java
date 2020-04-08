@@ -124,7 +124,7 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                DocumentReference docRef = db.collection("users").document(phoneno);
+                DocumentReference docRef = db.collection("patients").document(phoneno);
                 docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -220,7 +220,6 @@ public class SignUpActivity extends AppCompatActivity {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
         Toast.makeText(this, "Credential: " + credential.toString(), Toast.LENGTH_SHORT).show();
         //adding user
-        addUser();
         addtopatients();
 
         //signing the user
@@ -247,52 +246,6 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
-
-    void addUser(){
-
-        String gender = "";
-        int checked = GenderRadioGroup.getCheckedRadioButtonId();
-        if (checked == -1) {
-            Toast.makeText(SignUpActivity.this, "Select User Type!", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (checked == R.id.radioButtonMale)
-            gender = "Male";
-        else if (checked == R.id.radioButtonFemale)
-            gender = "Female";
-        else if (checked == R.id.radioButtonOthers)
-            gender = "Others";
-
-        final Map<String, Object> user = new HashMap<>();
-        user.put("userType", "patient");
-        user.put("name", NameTextInput.getText().toString());
-        user.put("age", Integer.parseInt(AgeTextInput.getText().toString()));
-        user.put("weight", Integer.parseInt(WeightTextInput.getText().toString()));
-        user.put("height", Integer.parseInt(HeightTextInput.getText().toString()));
-        user.put("gender", gender);
-        user.put("state", StateTextInput.getText().toString().toLowerCase());
-        user.put("city", CityTextInput.getText().toString().toLowerCase());
-        user.put("area", AreaTextInput.getText().toString().toLowerCase());
-        user.put("addressline", AddressLineTextInput.getText().toString().toLowerCase());
-
-        db.collection("users").document(phoneno)
-                .set(user)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("UserAdd", "DocumentSnapshot successfully written!");
-                        Toast.makeText(SignUpActivity.this, "User Added!", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("UserAdd", "Error writing document", e);
-                        Toast.makeText(SignUpActivity.this, "User Not Added!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
     }
 
     void addtopatients() {
