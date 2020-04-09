@@ -87,7 +87,7 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
                 appointment.put("year", year);
                 appointment.put("otp", getOTP());
 
-                db.collection("doctors").document(doctor.getID()).collection(day + month + year).document()
+                db.collection("doctors").document(doctor.getID()).collection(day + month + year).document(doctor.getID() + mAuth.getCurrentUser().getPhoneNumber() + day + month + year)
                         .set(appointment)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -106,7 +106,7 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
                             }
                         });
 
-                db.collection("patients").document(mAuth.getCurrentUser().getPhoneNumber()).collection("appointments").document()
+                db.collection("patients").document(mAuth.getCurrentUser().getPhoneNumber()).collection("appointments").document(doctor.getID() + mAuth.getCurrentUser().getPhoneNumber() + day + month + year)
                         .set(appointment)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override

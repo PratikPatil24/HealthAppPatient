@@ -23,15 +23,16 @@ import java.util.ArrayList;
 
 public class AppointmentsActivity extends AppCompatActivity {
 
+    //Firebase Auth
+    private FirebaseAuth mAuth;
+    //Firebase Firestore
+    private FirebaseFirestore db;
+
     //Recycler
     AppointmentAdapter madapter;
     RecyclerView recyclerView;
     LinearLayoutManager mLayoutManager;
     ArrayList<Appointment> appointments = new ArrayList<>();
-    //Firebase Auth
-    private FirebaseAuth mAuth;
-    //Firebase Firestore
-    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
