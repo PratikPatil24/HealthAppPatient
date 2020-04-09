@@ -1,7 +1,6 @@
 package com.pratik.healthapppatient;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -40,7 +39,7 @@ public class ViewHistoryActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                Toast.makeText(ViewHistoryActivity.this, tab.getPosition() + " " + "Changing", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ViewHistoryActivity.this, tab.getPosition() + " " + "Changing", Toast.LENGTH_SHORT).show();
             }
 
             @Override
