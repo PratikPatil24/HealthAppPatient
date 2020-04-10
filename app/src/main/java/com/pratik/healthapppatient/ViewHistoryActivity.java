@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayout;
 public class ViewHistoryActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
-    TabItem PrescriptionsTab, TreatmentsTab, ReportsTab;
+    TabItem PrescriptionsTab, TreatmentsTab;
 
     ViewPager viewPager;
 
@@ -26,7 +26,7 @@ public class ViewHistoryActivity extends AppCompatActivity {
 
         PrescriptionsTab = findViewById(R.id.tabPrescriptions);
         TreatmentsTab = findViewById(R.id.tabTreatments);
-        ReportsTab = findViewById(R.id.tabReports);
+//        ReportsTab = findViewById(R.id.tabReports);
 
         viewPager = findViewById(R.id.viewPagerViewHistory);
 

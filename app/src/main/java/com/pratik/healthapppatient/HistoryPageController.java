@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.pratik.healthapppatient.historyfragments.PrescriptionsFragment;
-import com.pratik.healthapppatient.historyfragments.ReportsFragment;
 import com.pratik.healthapppatient.historyfragments.TreatmentsFragment;
 
 public class HistoryPageController extends FragmentPagerAdapter {
@@ -25,8 +24,8 @@ public class HistoryPageController extends FragmentPagerAdapter {
                 return new PrescriptionsFragment();
             case 1:
                 return new TreatmentsFragment();
-            case 2:
-                return new ReportsFragment();
+//            case 2:
+//                return new ReportsFragment();
             default:
                 return null;
         }
