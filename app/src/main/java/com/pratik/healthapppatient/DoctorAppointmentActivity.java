@@ -18,6 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pratik.healthapppatient.models.Doctor;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -30,6 +33,7 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
     MaterialButton GetAppointmentButton;
     Doctor doctor;
     String day, month, year;
+    String daytoday, monthtoday;
     //Firebase Auth
     private FirebaseAuth mAuth;
     //Firebase Firestore
@@ -49,6 +53,14 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
 
         //Firebase Firestore
         db = FirebaseFirestore.getInstance();
+
+        Date c = Calendar.getInstance().getTime();
+
+        SimpleDateFormat df3 = new SimpleDateFormat("dd");
+        daytoday = df3.format(c);
+
+        SimpleDateFormat df4 = new SimpleDateFormat("MM");
+        monthtoday = df4.format(c);
 
         NameTextView = findViewById(R.id.textViewDoctorName);
         SpecialityTextView = findViewById(R.id.textViewSpeciality);
@@ -74,6 +86,24 @@ public class DoctorAppointmentActivity extends AppCompatActivity {
                 day = DayTextInput.getText().toString();
                 month = MonthTextInput.getText().toString();
                 year = YearTextInput.getText().toString();
+
+                if (day.equals(null) || month.equals(null) || year.equals(null)) {
+                    DayTextInput.setError("Enter Appointment Date:");
+                    DayTextInput.requestFocus();
+                    return;
+                }
+
+                if (Integer.parseInt(month) < Integer.parseInt(monthtoday)) {
+                    MonthTextInput.setError("Day Passed!");
+                    MonthTextInput.requestFocus();
+                    return;
+                }
+                if (Integer.parseInt(day) < Integer.parseInt(daytoday)) {
+                    DayTextInput.setError("Day Passed!");
+                    DayTextInput.requestFocus();
+                    return;
+                }
+
 
                 final Map<String, Object> appointment = new HashMap<>();
                 appointment.put("pID", mAuth.getCurrentUser().getPhoneNumber());
